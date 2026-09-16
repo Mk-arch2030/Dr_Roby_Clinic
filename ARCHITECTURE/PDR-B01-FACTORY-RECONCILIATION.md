@@ -270,6 +270,31 @@ Those matters require deliberate technical definition and proof.
 
 COMPLETE PATIENT DATA REMOVAL = PRODUCT DECISION CLOSED
 
+## 7B. FACTORY TECHNICAL DECISION — PDR-B01
+
+The Factory explicitly selects:
+
+PATIENT
+→ SEPARATE TECHNICAL PATIENT KEY
++
+CPN = STABLE CLINIC REFERENCE
+
+The technical Patient key is a persistence identity only.
+It is not a second product Patient identity.
+
+The CPN remains the stable clinic reference, generated once and
+recorded once with the Patient identity.
+
+Returning Visits retain the same Patient identity and CPN.
+
+The CPN is not a Visit identifier.
+
+Technical identifier type, datatype, format, schema, table, column,
+migration, ORM, repository, API, UI, authentication, authorization,
+and runtime implementation remain outside this decision.
+
+PDR-B01 = FACTORY TECHNICAL DECISION CLOSED
+
 ## 8. FACTORY DECISION POINT
 
 PDR-B01 cannot be considered CLOSED until the Factory deliberately
