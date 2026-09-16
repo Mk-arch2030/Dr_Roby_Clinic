@@ -286,6 +286,21 @@ STILL UNDEFINED:
 - Authorization implementation.
 - Retention and deletion technical semantics.
 
+B02-Q5 DOCTOR CLINICAL AUTHORITY DECISION CLOSED:
+
+- Doctor holds the final clinical decision authority regarding Investigation and Treatment.
+- Doctor Authority is not merely technical edit permission.
+- Doctor may clinically adopt, change, stop, or replace Treatment.
+- Doctor may clinically adopt or change Investigation.
+- Operational Workflow participation does NOT transfer Clinical Authority.
+
+STILL UNDEFINED:
+
+- Technical authorization implementation.
+- Exact permission mechanics.
+- API/UI authorization behavior.
+- Persistence and audit/versioning mechanics.
+
 ### PDR-B03 — Past History Storage Structure
 
 PRODUCT FACT IS KNOWN:

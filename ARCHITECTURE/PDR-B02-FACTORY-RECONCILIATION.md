@@ -124,6 +124,34 @@ STATUS = PRODUCT DECISION OPEN
 
 ---
 
+## 5F. FACTORY PRODUCT DECISION — DOCTOR CLINICAL AUTHORITY
+
+The Factory has closed B02-Q5.
+
+For Investigation and Treatment, Doctor Authority means more than technical edit permission.
+
+The Doctor holds the final clinical decision authority regarding:
+
+- what Investigation is clinically adopted or changed;
+- what Treatment is clinically adopted, changed, stopped, or replaced.
+
+Doctor Authorization therefore represents Clinical Authority, not merely a technical modification permission.
+
+Operational Workflow participation does NOT transfer Clinical Authority.
+
+This is a Product / Domain decision only.
+
+It does NOT define:
+- technical authorization implementation;
+- roles or permission tables;
+- API authorization;
+- UI behavior;
+- persistence representation;
+- audit/versioning;
+- workflow implementation.
+
+B02-Q5 = FACTORY PRODUCT DECISION CLOSED
+
 ## 5E. FACTORY PRODUCT DECISION — CLINICAL ATTACHMENTS
 
 The Factory has established Clinical Attachments as a Product Capability.
