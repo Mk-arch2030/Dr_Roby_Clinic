@@ -423,7 +423,22 @@ themselves.
 
 Define how the five product-level Case states are represented technically.
 
-STATUS = IMPORTANT TECHNICAL DECISION
+FACTORY DECISION = A — CURRENT STATE ONLY
+
+The Case carries one current state from the five already-defined product-level
+Case states. The current state represents the Case's current operational
+position in its workflow.
+
+A separate Case State History / State Transition History is NOT established
+by this decision.
+
+This does not replace or redefine Clinical History:
+- Clinical History records clinical information across Visits.
+- Each Visit is a distinct clinical encounter.
+- Case State represents the current operational position of the Case.
+- Clinical History and Case State History are separate concepts.
+
+STATUS = FACTORY PRODUCT DECISION CLOSED / TECHNICAL MATERIALIZATION = CURRENT STATE ONLY
 
 ### PDR-I02 — Visit Type Representation
 
