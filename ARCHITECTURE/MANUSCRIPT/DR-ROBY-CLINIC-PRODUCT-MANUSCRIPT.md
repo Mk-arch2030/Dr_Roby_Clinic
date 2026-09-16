@@ -263,15 +263,25 @@ higher protection occurs.
 Closing the Clinic Day does not automatically complete an open Case.
 
 ## 13. WORKFLOW VISION
+The product-level Case Workflow is DEFINED.
 
-The clinic should have an explicit workflow for the current patient
-case.
+The defined product-level workflow includes:
+- the five Case states;
+- the conceptual transitions between those states;
+- the distinction between Visit Exit and Case Completion;
+- the distinction between Case Completion and Clinic Day Closure;
+- the established Doctor / Nurse authority boundary defined by CONTRACT-03.
 
-The workflow is intended to make the state of the case/visit understandable
-to the Doctor and Nurse.
+The following remain explicitly NOT_DEFINED and are not authorized by this reconciliation:
+- exact transition conditions;
+- timing rules;
+- concurrency behavior;
+- technical state-machine design;
+- technical persistence representation;
+- technical authorization implementation;
+- technical permission matrices.
 
-Exact states, transitions, permissions, and responsibilities remain to be
-defined before implementation.
+No technical implementation is authorized by this reconciliation.
 
 ## 14. FACTORY EXPERIENCE
 
@@ -339,14 +349,14 @@ CASE_LEVEL_WORKFLOW_CONTRACT = DEFINED
 
 ## 18. NEXT GATE
 
-NEXT GATE = C08 MANUSCRIPT RECONCILIATION PROVE
+NEXT GATE = BUILD AUTHORIZATION / IMPLEMENTATION DEFINITION
 
-The closed Contracts 01 through 07 remain authoritative and are not
-reopened or redefined. No implementation, database schema, API, UI, or
-authorization implementation is authorized by this reconciliation.
+The Contract phase is complete through CONTRACT-08.
+Contracts 01 through 08 remain authoritative and CLOSED.
+No implementation, database schema, API, UI, or authorization implementation
+is authorized merely by this transition.
 
-The next product-contract gate is to explicitly define the remaining
-Case-level Workflow states, transitions, permissions, and responsibilities
-before implementation.
+The next gate is to explicitly define the BUILD authorization and
+implementation boundaries before implementation begins.
 
 END OF MANUSCRIPT

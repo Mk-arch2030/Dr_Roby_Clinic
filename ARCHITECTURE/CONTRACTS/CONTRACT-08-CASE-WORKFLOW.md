@@ -361,25 +361,31 @@ This contract does NOT authorize:
 
 ## 16. ACCEPTANCE TARGET
 
-C08 may be considered complete only when the product-level Case Workflow
-states, transitions, responsibilities, and permissions required by the
-product vision have been explicitly defined and proven against the
-authoritative manuscript and closed contracts.
+C08 is considered product-level defined when the Case Workflow states,
+conceptual transitions, Visit Exit / Case Completion distinction, Clinic Day
+Closure / Case Completion distinction, and the Doctor / Nurse authority
+boundary established by CONTRACT-03 are explicitly defined and proven
+against the authoritative manuscript and closed contracts.
 
-Until then:
+Exact workflow conditions, timing, concurrency, technical state-machine
+design, technical persistence representation, technical authorization
+implementation, and technical permission matrices remain NOT_DEFINED and
+are not required for this product-level definition.
 
-CASE_WORKFLOW_CONTRACT = NOT_DEFINED
-
+The following authorization boundaries remain in force:
+CASE_WORKFLOW_CONTRACT = DEFINED
 IMPLEMENTATION_AUTHORIZED = NO
 DATABASE_SCHEMA_AUTHORIZED = NO
 API_AUTHORIZED = NO
 UI_AUTHORIZED = NO
 AUTHORIZATION_IMPLEMENTATION_AUTHORIZED = NO
 
----
-
 ## 17. NEXT GATE
 
-NEXT GATE = C08 MANUSCRIPT RECONCILIATION
+NEXT GATE = BUILD AUTHORIZATION / IMPLEMENTATION DEFINITION
 
-END OF CONTRACT-08 DRAFT
+CONTRACT-08 IS CLOSED.
+The Contract phase is complete through CONTRACT-08.
+No implementation is authorized by this transition alone.
+
+END OF CONTRACT-08
