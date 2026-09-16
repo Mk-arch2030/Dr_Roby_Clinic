@@ -228,7 +228,7 @@ Therefore:
 - This is a Product / Domain authority decision.
 - It does NOT define the technical amendment mechanism.
 - It does NOT define whether a content area supports add, edit, or delete operations.
-- It does NOT define whether amendment occurrences are preserved.
+- Amendment occurrence preservation is now established by B02-Q6; technical preservation mechanics remain undefined.
 - It does NOT select database schema, persistence representation, API, UI, or authorization implementation.
 
 B02-Q3 = FACTORY PRODUCT DECISION CLOSED

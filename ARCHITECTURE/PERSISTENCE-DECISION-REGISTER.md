@@ -239,7 +239,7 @@ STILL UNDEFINED:
   hybrid structures, content blocks, documents, or another persistence
   representation.
 - Exact amendment semantics.
-- Whether amendment occurrence itself must be preserved.
+- Technical mechanism for preserving the amendment occurrence remains undefined.
 
 STATUS = BLOCKING TECHNICAL DECISION
 B02-Q1 = FACTORY PRODUCT DECISION CLOSED
@@ -253,7 +253,7 @@ STILL UNDEFINED:
 
 - Which individual content areas permit add, edit, or delete operations.
 - Exact amendment semantics.
-- Whether amendment occurrence itself must be preserved.
+- Technical mechanism for preserving the amendment occurrence remains undefined.
 - Technical amendment mechanism and persistence representation.
 
 
