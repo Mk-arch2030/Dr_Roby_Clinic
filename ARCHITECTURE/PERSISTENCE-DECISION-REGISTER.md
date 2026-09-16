@@ -329,14 +329,43 @@ B02-Q6 AMENDMENT PRESERVATION & VISIT TRASH DECISION CLOSED:
 PRODUCT FACT IS KNOWN:
 
 - Past History is patient-level and distinct from Clinical History.
+- Past History is not a Visit.
 
-STILL UNDEFINED:
+FACTORY PRODUCT DECISIONS CLOSED:
 
-- Single patient-level record vs multiple records.
-- Exact content structure.
-- Edit/update semantics.
+#### B03-Q1 — Past History Cardinality
 
-STATUS = BLOCKING TECHNICAL DECISION
+- Past History is represented as multiple patient-level items.
+- Past History is not a single undifferentiated patient-level record.
+
+B03-Q1 = FACTORY PRODUCT DECISION CLOSED
+
+#### B03-Q2 — Past History Content and Mutation
+
+- Past History contains medical/history information associated with the Patient.
+- Past History information is recorded as patient-level history items.
+- A Past History item may be added or modified.
+- Any modification of Past History requires Doctor Authority.
+
+B03-Q2 = FACTORY PRODUCT DECISION CLOSED
+
+#### B03-Q3 — Past History Mutation Authority and Preservation
+
+- Past History mutation is limited to ADD and MODIFY.
+- Doctor holds the authority to perform Past History changes.
+- When Past History is modified, the resulting current Past History remains preserved as Past History for the Patient.
+- The occurrence of the amendment itself is NOT established as a separately preserved Product Fact.
+
+B03-Q3 = FACTORY PRODUCT DECISION CLOSED
+
+TECHNICAL MATERIALIZATION REMAINS UNDEFINED:
+
+- Exact technical storage representation.
+- Technical edit/update mechanism.
+- Database schema and persistence implementation.
+- API/UI/authorization implementation.
+
+STATUS = FACTORY PRODUCT DECISIONS CLOSED / TECHNICAL MATERIALIZATION REMAINS UNDEFINED
 
 ### PDR-B04 — Clinic Day Technical Identity
 
