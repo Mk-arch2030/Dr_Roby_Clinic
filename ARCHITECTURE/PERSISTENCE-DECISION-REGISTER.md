@@ -257,6 +257,19 @@ STILL UNDEFINED:
 - Technical amendment mechanism and persistence representation.
 
 
+B02-Q4 NO-OVERWRITE SCOPE DECISION CLOSED:
+
+- The No-Overwrite rule applies between different Visits.
+- A Later Visit does NOT overwrite Clinical Content recorded in a Previous Visit.
+- Within the SAME Visit, recorded Clinical Content MAY be amended and replaced by a new value.
+- Any such amendment requires Doctor Authorization according to B02-Q3.
+
+STILL UNDEFINED:
+
+- Technical amendment mechanism.
+- Persistence representation of amended content.
+- Whether amendment occurrence itself must be preserved.
+
 ### PDR-B03 — Past History Storage Structure
 
 PRODUCT FACT IS KNOWN:

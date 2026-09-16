@@ -124,6 +124,33 @@ STATUS = PRODUCT DECISION OPEN
 
 ---
 
+## 5D. FACTORY PRODUCT DECISION — VISIT NO-OVERWRITE SCOPE
+
+The Factory has closed B02-Q4.
+
+The No-Overwrite rule applies to the relationship between different Visits.
+
+Therefore:
+
+- A Later Visit does NOT overwrite Clinical Content recorded in a Previous Visit.
+- Within the SAME Visit, recorded Clinical Content MAY be amended and replaced by a new value.
+- Any such amendment requires Doctor Authorization according to B02-Q3.
+
+This is a Product / Domain decision only.
+
+It does NOT define:
+- database schema;
+- persistence representation;
+- versioning;
+- audit history;
+- event sourcing;
+- amendment storage mechanism;
+- API;
+- UI;
+- authorization implementation.
+
+B02-Q4 = FACTORY PRODUCT DECISION CLOSED
+
 ## 5C. FACTORY PRODUCT DECISION — VISIT CLINICAL CONTENT AMENDMENT AUTHORITY
 
 The Factory has closed B02-Q3.
