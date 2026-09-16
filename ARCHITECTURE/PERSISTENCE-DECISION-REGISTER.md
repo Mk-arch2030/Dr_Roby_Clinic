@@ -443,11 +443,28 @@ STATUS = FACTORY PRODUCT DECISION CLOSED / TECHNICAL MATERIALIZATION = CURRENT S
 ### PDR-I02 — Visit Type Representation
 
 Define technical representation of the approved Visit Type:
-
 `Visit & Consultation`
 
-STATUS = IMPORTANT TECHNICAL DECISION
+FACTORY DECISION = A — DIRECT VALUE ON VISIT
 
+The approved Visit Type is represented directly as a value on the Visit.
+
+Visit
+ ├── Patient
+ ├── Clinic Day
+ ├── Visit Type = Visit & Consultation
+ └── Clinical Content
+
+Visit Type describes the nature of the Visit only.
+It is NOT a billing, payment, charge, invoice, accounting, or financial entity.
+
+A separate Visit Type entity / reference is NOT established by this decision.
+
+This decision does not authorize additional Visit Types or implementation.
+The approved product-level Visit Type remains:
+`Visit & Consultation`
+
+STATUS = FACTORY PRODUCT DECISION CLOSED / TECHNICAL MATERIALIZATION = DIRECT VALUE ON VISIT
 ### PDR-I03 — Clinical History Derivation
 
 Define whether Clinical History is derived from Visits at read time,
