@@ -472,8 +472,22 @@ partially materialized, or represented through another technical mechanism.
 
 The authoritative clinical source remains the recorded Visits.
 
-STATUS = IMPORTANT TECHNICAL DECISION
+FACTORY DECISION = A — DERIVED FROM VISITS AT READ TIME
 
+Clinical History is derived from the recorded Visits when it is requested
+for reading or presentation.
+
+No separate independently maintained Clinical History representation is
+established by this decision.
+
+Visits remain the authoritative clinical source. Clinical History is a
+derived view of the patient's recorded Visits and does not become a second
+source of clinical truth.
+
+This decision does not alter the distinction between Clinical History and
+individual Visits, and does not authorize implementation.
+
+STATUS = FACTORY PRODUCT DECISION CLOSED / TECHNICAL MATERIALIZATION = DERIVED FROM VISITS AT READ TIME
 ### PDR-I04 — Visit Amendment / Protection
 
 CONTRACT-07 establishes stronger protection requirements for Diagnosis,
