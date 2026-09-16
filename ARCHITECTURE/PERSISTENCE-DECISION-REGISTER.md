@@ -493,10 +493,30 @@ STATUS = FACTORY PRODUCT DECISION CLOSED / TECHNICAL MATERIALIZATION = DERIVED F
 CONTRACT-07 establishes stronger protection requirements for Diagnosis,
 Treatment, and Investigation after Clinic Day closure.
 
-The exact technical mechanism is not yet defined.
+FACTORY DECISION = A — VISIT-LEVEL PROTECTION STATE
 
-STATUS = IMPORTANT TECHNICAL DECISION
+Protection is represented at the Visit level rather than independently on
+each Clinical Content area.
 
+Visit
+ ├── Clinical Content
+ └── Protection State
+       ├── OPEN
+       └── PROTECTED
+
+Clinic Day closure establishes the applicable protection requirement for the
+Visit. A protected Visit requires Doctor Authorization for amendments subject
+to the protection requirement.
+
+Protection does not delete or replace the recorded Visit data. The recorded
+clinical data remains preserved according to the product rules.
+
+This decision does not establish Audit Log, Event Sourcing, State History,
+or any other separate amendment-history mechanism.
+
+This decision does not authorize implementation.
+
+STATUS = FACTORY PRODUCT DECISION CLOSED / TECHNICAL MATERIALIZATION = VISIT-LEVEL PROTECTION STATE
 ### PDR-I05 — Delete / Retention Semantics
 
 No product contract currently authorizes arbitrary deletion behavior.
