@@ -373,14 +373,23 @@ PRODUCT FACT IS KNOWN:
 
 - Clinic Day represents a working-date context.
 
-STILL UNDEFINED:
+B04-Q1 = CLOSED:
 
-- Technical identity strategy.
-- Whether the product permits one or multiple persistent Clinic Day
-  records for the same working date.
-- Exact working-date uniqueness rule.
+- The Working Date itself is the Technical Identity of the Clinic Day.
 
-STATUS = BLOCKING TECHNICAL DECISION
+B04-Q2 = CLOSED:
+
+- The product permits exactly one Clinic Day for a Working Date.
+- Multiple persistent Clinic Day records for the same Working Date are
+  not permitted.
+
+B04-Q3 = CLOSED:
+
+- Working Date MUST be UNIQUE across Clinic Day records.
+- A Working Date identifies one Clinic Day.
+
+STATUS = FACTORY PRODUCT DECISIONS CLOSED
+TECHNICAL MATERIALIZATION REMAINS UNDEFINED
 
 ### PDR-B05 — Case Completion Representation
 
