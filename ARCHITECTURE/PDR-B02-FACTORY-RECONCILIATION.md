@@ -124,6 +124,23 @@ STATUS = PRODUCT DECISION OPEN
 
 ---
 
+## 5C. FACTORY PRODUCT DECISION — VISIT CLINICAL CONTENT AMENDMENT AUTHORITY
+
+The Factory has closed B02-Q3.
+
+The Doctor is the primary custodian of the clinical record and the medical manager of the Clinic.
+
+Therefore:
+
+- Any amendment to Clinical Content already recorded within a Visit requires Doctor Authorization.
+- This is a Product / Domain authority decision.
+- It does NOT define the technical amendment mechanism.
+- It does NOT define whether a content area supports add, edit, or delete operations.
+- It does NOT define whether amendment occurrences are preserved.
+- It does NOT select database schema, persistence representation, API, UI, or authorization implementation.
+
+B02-Q3 = FACTORY PRODUCT DECISION CLOSED
+
 ## 5B. FACTORY PRODUCT DECISION — VISIT CLINICAL CONTENT CARDINALITY
 
 The Factory has closed B02-Q2.

@@ -244,6 +244,18 @@ STILL UNDEFINED:
 STATUS = BLOCKING TECHNICAL DECISION
 B02-Q1 = FACTORY PRODUCT DECISION CLOSED
 B02-Q2 = FACTORY PRODUCT DECISION CLOSED
+B02-Q3 AMENDMENT AUTHORITY DECISION CLOSED:
+
+- Any amendment to Clinical Content already recorded within a Visit requires Doctor Authorization.
+- The Doctor is the primary custodian of the clinical record and the medical manager of the Clinic.
+
+STILL UNDEFINED:
+
+- Which individual content areas permit add, edit, or delete operations.
+- Exact amendment semantics.
+- Whether amendment occurrence itself must be preserved.
+- Technical amendment mechanism and persistence representation.
+
 
 ### PDR-B03 — Past History Storage Structure
 
