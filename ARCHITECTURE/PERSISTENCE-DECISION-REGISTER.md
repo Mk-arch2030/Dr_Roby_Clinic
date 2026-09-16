@@ -521,11 +521,27 @@ STATUS = FACTORY PRODUCT DECISION CLOSED / TECHNICAL MATERIALIZATION = VISIT-LEV
 
 No product contract currently authorizes arbitrary deletion behavior.
 
-Technical deletion, retention, soft-delete, hard-delete, or append-only
-behavior must not be invented.
+FACTORY DECISION = A — TECHNICAL DELETE / RETENTION REMAINS UNDEFINED
 
-STATUS = IMPORTANT TECHNICAL DECISION
+The product-level deletion capabilities already established remain valid,
+including the distinct Patient Trash and Visit Trash boundaries.
 
+However, the technical persistence mechanism for deletion and retention is
+not defined by this decision.
+
+The following remain intentionally undefined:
+- Soft Delete
+- Hard Delete
+- Trash Storage
+- Purge
+- Retention Mechanism
+- Physical Destruction
+
+No technical deletion behavior is invented or implied by this decision.
+
+This decision does not authorize implementation.
+
+STATUS = FACTORY PRODUCT DECISION CLOSED / TECHNICAL DELETE-RETENTION MECHANISM UNDEFINED
 ### PDR-I06 — Actor Persistence
 
 The product defines Doctor and Nurse authority boundaries, but technical
