@@ -233,6 +233,43 @@ property as a technical persistence assumption.
 
 ---
 
+## 7A. FACTORY PRODUCT DECISION — COMPLETE PATIENT DATA REMOVAL
+
+The product shall provide the Doctor with a dedicated Patient Trash
+action 🗑️ for removing the Patient's complete recorded data.
+
+This capability concerns complete Patient data removal only.
+
+It is NOT a Patient data-editing capability.
+
+It does NOT authorize modification of individual Patient fields,
+Clinical History entries, Visits, Cases, Clinic Days, CPN values, or
+other individual records.
+
+The Doctor deliberately initiates the complete Patient data removal
+operation through the dedicated Trash capability.
+
+The technical semantics of complete removal remain undefined and are
+not inferred here.
+
+This decision does not define:
+
+- physical deletion versus another technical deletion mechanism
+- retention or recovery behavior
+- dependency handling
+- referential deletion behavior
+- CPN reuse or non-reuse
+- database implementation
+- transaction behavior
+- authorization implementation
+- API contract
+- UI implementation details
+- audit behavior
+
+Those matters require deliberate technical definition and proof.
+
+COMPLETE PATIENT DATA REMOVAL = PRODUCT DECISION CLOSED
+
 ## 8. FACTORY DECISION POINT
 
 PDR-B01 cannot be considered CLOSED until the Factory deliberately
