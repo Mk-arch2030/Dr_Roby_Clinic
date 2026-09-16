@@ -545,12 +545,57 @@ STATUS = FACTORY PRODUCT DECISION CLOSED / TECHNICAL DELETE-RETENTION MECHANISM 
 ### PDR-I06 — Actor Persistence
 
 The product defines Doctor and Nurse authority boundaries, but technical
-actor/user persistence is not yet defined.
+actor/user persistence was not previously defined.
 
-STATUS = IMPORTANT TECHNICAL DECISION
+FACTORY DECISION = A — ACTOR PERSISTENCE AS ONE INDEPENDENT ACTOR
 
----
+The persistence boundary represents the product Actor as one technical
+Actor concept with:
+- Actor Identity
+- Actor Role / Authority Context
 
+The established product Actor roles remain:
+- Doctor
+- Nurse
+
+The operational creation relationship is explicit:
+
+Doctor
+   │
+   │ creates
+   ▼
+Nurse Account
+
+The Doctor is the initial Actor required to establish the product's
+operational context.
+
+The product may operate with:
+- Doctor only
+- Doctor + Nurse
+
+A Nurse does not self-create through a public registration flow.
+The Nurse Account is created by the Doctor.
+
+Creating a Nurse Account does not transfer Doctor clinical authority,
+system ownership, or product authority to the Nurse.
+
+The detailed operational permissions and delegated Nurse capabilities are
+NOT defined by this decision. They remain subject to the later authorized
+Authorization / Application Contract.
+
+This decision does not establish:
+- Public Nurse Registration
+- Nurse self-registration
+- External identity providers
+- Multi-tenant identity
+- Audit architecture
+- Event sourcing
+- State history
+- Permission-matrix expansion
+
+This decision does not authorize implementation.
+
+STATUS = FACTORY PRODUCT DECISION CLOSED / TECHNICAL MATERIALIZATION = ACTOR + ROLE/AUTHORITY CONTEXT
 ## 6. DEFERRED DECISIONS
 
 The following are intentionally deferred unless required by a later
