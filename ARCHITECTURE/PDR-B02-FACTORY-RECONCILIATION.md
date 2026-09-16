@@ -1,0 +1,329 @@
+# PDR-B02 — FACTORY RECONCILIATION
+
+## 1. PURPOSE
+
+This artifact reconciles two independent technical excavations:
+
+- DeepSeek
+- OX ALPHA
+
+The excavations are evidence only.
+
+They have no architecture authority.
+
+This artifact does not authorize database schema or implementation.
+
+---
+
+## 2. AUTHORITATIVE BASELINE
+
+The Factory-authoritative product facts for PDR-B02 are:
+
+1. Visit clinical content includes:
+   - Current Complaint
+   - Investigation / Diagnosis
+   - Treatment
+   - Follow-up
+
+2. Each recorded Visit contributes clinical information to the Patient's
+   longitudinal Clinical History.
+
+3. A later follow-up return creates a new Visit.
+
+4. A later Visit must not overwrite a previous Visit.
+
+5. Diagnosis modification requires an explicit Doctor command.
+
+6. Treatment modification requires a stronger explicit Doctor command.
+
+7. Investigation modification requires a stronger explicit Doctor command.
+
+8. Doctor remains Clinical Authority.
+
+No additional product requirement is accepted from either excavation
+without an explicit Factory decision.
+
+---
+
+## 3. INDEPENDENT EXCAVATION AGREEMENT
+
+DeepSeek and OX ALPHA independently agree on the following technical
+observations:
+
+- The four named clinical-content areas are established.
+- The Visit is the historical encounter boundary.
+- A later Visit is a new Visit and must not overwrite a previous Visit.
+- Internal Visit amendment semantics are not fully defined.
+- Cardinality of the four content areas is not established.
+- Investigation and Diagnosis require semantic clarification because
+  they are grouped in the content list but addressed separately in
+  amendment rules.
+- "Stronger Doctor command" is not yet technically defined.
+- The facts do not by themselves mandate audit, versioning, or
+  event sourcing.
+- Follow-up must not be silently converted into scheduling.
+- No clinical fields outside the authoritative facts may be invented.
+- Persistence representation cannot responsibly be selected before
+  the relevant product/domain questions are closed.
+- Neither excavation selected a winning persistence model.
+
+AGREEMENT STATUS = PASS
+
+---
+
+## 4. IMPORTANT DISTINCTION
+
+The excavations identify two different boundaries:
+
+A. CROSS-VISIT PRESERVATION
+
+A later Visit must not overwrite a previous Visit.
+
+B. WITHIN-VISIT AMENDMENT
+
+Existing contracts permit explicit Doctor modification of:
+- Diagnosis
+- Treatment
+- Investigation
+
+The relationship between A and B is not yet fully defined.
+
+The Factory must explicitly decide whether the no-overwrite rule applies:
+
+- only to previous Visits as encounter records;
+- to content within a Visit as well;
+- or through another deliberately defined product rule.
+
+No technical versioning or audit mechanism is inferred.
+
+---
+
+## 5. INVESTIGATION / DIAGNOSIS SEMANTIC GATE
+
+The product content list uses:
+
+Investigation / Diagnosis
+
+The amendment rules separately reference:
+
+- Diagnosis
+- Investigation
+
+This creates a domain-definition question.
+
+Possible interpretations exist, but neither excavation is authorized
+to choose one.
+
+FACTORY DECISION REQUIRED:
+
+- Are Investigation and Diagnosis one clinical content area with
+  separate aspects?
+- Or are they two distinct clinical content areas?
+
+STATUS = PRODUCT DECISION OPEN
+
+---
+
+## 6. CARDINALITY GATE
+
+No authoritative cardinality has yet been established for:
+
+- Current Complaint
+- Investigation
+- Diagnosis
+- Treatment
+- Follow-up
+
+The Factory must determine the product-level cardinality before using
+that decision to constrain persistence shape.
+
+Important rule:
+
+PRODUCT CARDINALITY != STORAGE SHAPE
+
+A technical structure must not silently create a product rule.
+
+STATUS = PRODUCT DECISION OPEN
+
+---
+
+## 7. FOLLOW-UP BOUNDARY
+
+Follow-up is established as clinical content.
+
+A later return creates a new Visit.
+
+Nothing currently authorizes:
+
+- appointment scheduling
+- reminders
+- calendar behavior
+- booking
+- automated follow-up actions
+
+STATUS = CLINICAL CONTENT ONLY
+
+---
+
+## 8. AMENDMENT STRENGTH
+
+The contracts establish:
+
+- Diagnosis → explicit Doctor command.
+- Treatment → stronger Doctor command.
+- Investigation → stronger Doctor command.
+
+What "stronger" means at product level is not yet defined.
+
+Neither excavation is authorized to convert this distinction into:
+
+- audit logging
+- versioning
+- event sourcing
+- authorization implementation
+- immutable records
+
+STATUS = PRODUCT DECISION OPEN
+
+---
+
+## 9. AMENDMENT RECORDING
+
+An unresolved question remains:
+
+Must the system preserve the fact that an amendment occurred,
+or is the requirement only that amendment be gated by the Doctor's
+explicit command?
+
+This is distinct from whether the content itself is retained.
+
+STATUS = PRODUCT DECISION OPEN
+
+---
+
+## 10. MODEL SPACE — NOT A SELECTION
+
+The excavations identify technically coherent model families:
+
+- Flat scalar Visit content.
+- Structured child records.
+- Hybrid representation.
+- Typed/content-block representation.
+- Structured document/value representation.
+- Versioned/superseding representation.
+- Append-only representation.
+
+No model is selected here.
+
+Append-only/event-log approaches remain especially guarded because
+they can introduce excluded event-sourcing behavior.
+
+STATUS = MODEL SELECTION OPEN
+
+---
+
+## 11. FACTORY DECISION SET
+
+Before selecting persistence representation, the following product
+questions require explicit Factory ruling:
+
+### B02-Q1
+Are Investigation and Diagnosis one clinical content area or two?
+
+### B02-Q2
+What is the product cardinality for each clinical-content area
+within one Visit?
+
+### B02-Q3
+Within an existing Visit, what exactly may be amended?
+
+### B02-Q4
+Does "Later Visit must not overwrite previous Visit" apply only
+to previous Visit records, or also to content previously recorded
+inside the same Visit?
+
+### B02-Q5
+What makes a Treatment/Investigation command "stronger" than the
+explicit Diagnosis command?
+
+### B02-Q6
+Must an amendment itself be preserved as a product fact, or is
+Doctor-authorized modification sufficient?
+
+### B02-Q7
+Is Follow-up strictly clinical content with no system-acted-upon
+scheduling behavior?
+
+These are Factory questions.
+
+They are not technical implementation questions yet.
+
+---
+
+## 12. TECHNICAL DECISION AFTER PRODUCT CLOSURE
+
+Only after the required product decisions are closed should the
+Factory select the persistence representation for B02.
+
+The technical decision must then explicitly define:
+
+- representation family;
+- cardinality mapping;
+- historical preservation behavior;
+- amendment representation;
+- persistence invariants.
+
+No SQL/schema is authorized by this artifact.
+
+---
+
+## 13. DEFERRED
+
+The following remain safely deferred:
+
+- concrete field names;
+- concrete datatypes;
+- text length/encoding;
+- indexes;
+- physical ordering;
+- ORM;
+- migrations;
+- repository implementation;
+- API;
+- UI;
+- authentication;
+- authorization implementation;
+- runtime;
+- history materialization strategy under PDR-I03;
+- audit/event sourcing unless separately authorized.
+
+---
+
+## 14. SCOPE GUARD
+
+No new product capability is introduced.
+
+No billing.
+
+No pharmacy.
+
+No laboratory integration.
+
+No scheduling.
+
+No AI diagnosis or decision support.
+
+No invented clinical fields.
+
+No audit/event-sourcing requirement is inferred.
+
+No implementation is authorized.
+
+DATABASE_SCHEMA = NOT_DEFINED
+
+PERSISTENCE_IMPLEMENTATION_AUTHORIZED = NO
+
+PDR-B02 = BLOCKING TECHNICAL DECISION
+
+NEXT ACTION = FACTORY PRODUCT DECISION CLOSURE
+
