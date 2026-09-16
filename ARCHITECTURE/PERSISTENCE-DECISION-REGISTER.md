@@ -215,21 +215,26 @@ STATUS = FACTORY DECISION CLOSED
 
 ### PDR-B02 — Visit Clinical Content Structure
 
-PRODUCT FACTS ARE KNOWN:
+FACTORY PRODUCT DECISION CLOSED:
 
-- Current Complaint.
-- Investigation / Diagnosis.
-- Treatment.
-- Follow-up.
+- Current Complaint is a distinct Visit clinical-content area.
+- Investigation is a distinct Visit clinical-content area.
+- Diagnosis is a distinct Visit clinical-content area.
+- Treatment is a distinct Visit clinical-content area.
+- Follow-up is a distinct Visit clinical-content area.
+- Investigation and Diagnosis are NOT one combined product concept.
 
 STILL UNDEFINED:
 
-- Field/cardinality structure.
+- Cardinality of each clinical-content area.
 - Whether content is represented as scalar fields, structured records,
-  or another persistence representation.
+  hybrid structures, content blocks, documents, or another persistence
+  representation.
 - Exact amendment semantics.
+- Whether amendment occurrence itself must be preserved.
 
 STATUS = BLOCKING TECHNICAL DECISION
+B02-Q1 = FACTORY PRODUCT DECISION CLOSED
 
 ### PDR-B03 — Past History Storage Structure
 

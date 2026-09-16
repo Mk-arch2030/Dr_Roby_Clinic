@@ -124,6 +124,29 @@ STATUS = PRODUCT DECISION OPEN
 
 ---
 
+## 5A. FACTORY PRODUCT DECISION — INVESTIGATION AND DIAGNOSIS
+
+The Factory has closed B02-Q1.
+
+Investigation and Diagnosis are two distinct clinical-content areas
+within the Visit.
+
+They are not one combined persisted/product concept.
+
+This decision establishes product/domain separation only.
+
+It does NOT select:
+- field structure;
+- cardinality;
+- persistence representation;
+- amendment representation;
+- database schema;
+- API;
+- UI;
+- authorization implementation.
+
+B02-Q1 = FACTORY PRODUCT DECISION CLOSED
+
 ## 6. CARDINALITY GATE
 
 No authoritative cardinality has yet been established for:
