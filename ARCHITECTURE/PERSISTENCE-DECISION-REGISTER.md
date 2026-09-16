@@ -397,13 +397,20 @@ PRODUCT FACT IS KNOWN:
 
 - Case reaches Completed only through Doctor's clinical completion decision.
 
-STILL UNDEFINED:
+B05-Q1 = CLOSED:
 
-- Whether completion is represented directly on Case or through a
-  dedicated completion record/fact.
-- Exact completion metadata.
+- Case Completion is represented directly on the Case.
+- A dedicated Completion Record / Fact is not established as the
+  representation of Case Completion.
 
-STATUS = BLOCKING TECHNICAL DECISION
+B05-Q2 = CLOSED:
+
+- Completion Status.
+- Completed By (Doctor).
+- Completed At (Working Date/Date-Time).
+
+STATUS = FACTORY PRODUCT DECISIONS CLOSED
+TECHNICAL MATERIALIZATION REMAINS UNDEFINED
 
 ---
 
