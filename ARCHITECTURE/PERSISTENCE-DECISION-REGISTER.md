@@ -300,6 +300,16 @@ STILL UNDEFINED:
 - API/UI authorization behavior.
 - Persistence and audit/versioning mechanics.
 
+B02-Q7 FOLLOW-UP OPERATIONAL EXTENSION DECISION CLOSED:
+
+- Follow-up remains a Clinical Content area within the Visit.
+- Follow-up may establish a Follow-up Task within the Product.
+- Follow-up Task is an operational extension of Follow-up.
+- Scheduling capability is NOT established by this decision.
+- Appointment management is NOT established by this decision.
+- Reminder capability is NOT established by this decision.
+- Exact Follow-up Task lifecycle, persistence representation, authorization mechanics, API, UI, and runtime behavior remain undefined.
+
 B02-Q6 AMENDMENT PRESERVATION & VISIT TRASH DECISION CLOSED:
 
 - Amendment occurrence MUST be preserved as a Product Fact.

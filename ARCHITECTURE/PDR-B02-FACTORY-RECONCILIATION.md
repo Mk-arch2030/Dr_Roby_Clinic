@@ -442,6 +442,23 @@ This decision does NOT establish Audit Log, Event Sourcing, Versioning,
 technical amendment storage, database schema, API, UI, authorization
 implementation, or any other technical mechanism.
 
+## 5H. FACTORY PRODUCT DECISION — FOLLOW-UP OPERATIONAL EXTENSION
+
+The Factory has closed B02-Q7.
+
+Follow-up remains a Clinical Content area within the Visit.
+
+Follow-up may establish a Follow-up Task within the Product.
+
+The Follow-up Task is an operational extension of Follow-up.
+
+This decision does NOT establish Scheduling, Appointment management, or Reminder capability.
+
+The exact Follow-up Task lifecycle, persistence representation, authorization mechanics,
+API, UI, and runtime behavior remain undefined at this stage.
+
+B02-Q7 = FACTORY PRODUCT DECISION CLOSED
+
 B02-Q6 = FACTORY PRODUCT DECISION CLOSED
 
 
