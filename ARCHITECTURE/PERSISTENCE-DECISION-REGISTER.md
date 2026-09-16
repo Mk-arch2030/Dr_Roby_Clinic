@@ -268,7 +268,6 @@ STILL UNDEFINED:
 
 - Technical amendment mechanism.
 - Persistence representation of amended content.
-- Whether amendment occurrence itself must be preserved.
 
 B02-Q5A CLINICAL ATTACHMENTS DECISION CLOSED:
 
@@ -300,6 +299,20 @@ STILL UNDEFINED:
 - Exact permission mechanics.
 - API/UI authorization behavior.
 - Persistence and audit/versioning mechanics.
+
+B02-Q6 AMENDMENT PRESERVATION & VISIT TRASH DECISION CLOSED:
+
+- Amendment occurrence MUST be preserved as a Product Fact.
+- Visit-level retained material may have a dedicated Visit Trash boundary.
+- Visit Trash may feed into the Global Trash surface.
+- Visit Trash is distinct from Patient Trash.
+- Doctor may configure the Visit Trash retention period through Product Settings.
+- Minimum retention = 14 Clinic Days.
+- Maximum retention = 30 Clinic Days.
+- The Doctor-selected retention period MUST remain within this range.
+- Automatic movement to Trash is an intended Product capability.
+- Exact trigger/counting semantics, technical storage, deletion/purge behavior, and final destruction semantics remain undefined.
+- No Audit Log, Event Sourcing, Versioning, technical amendment mechanism, schema, API, UI, or authorization implementation is selected by this decision.
 
 ### PDR-B03 — Past History Storage Structure
 

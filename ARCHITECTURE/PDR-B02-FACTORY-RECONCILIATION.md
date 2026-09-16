@@ -412,6 +412,39 @@ explicit Diagnosis command?
 Must an amendment itself be preserved as a product fact, or is
 Doctor-authorized modification sufficient?
 
+## 5G. FACTORY PRODUCT DECISION — AMENDMENT PRESERVATION & VISIT TRASH
+
+The Factory has closed B02-Q6.
+
+The occurrence of an Amendment is a Product Fact and MUST be preserved.
+
+The Product establishes a dedicated Visit Trash boundary for retained
+material belonging to a Visit. Visit Trash may feed into the Global Trash
+surface.
+
+Visit Trash is distinct from Patient Trash.
+
+The Doctor may configure the Visit Trash retention period through Product
+Settings.
+
+The configurable retention range is bounded by:
+- Minimum: 14 Clinic Days.
+- Maximum: 30 Clinic Days.
+
+The Doctor-selected retention period MUST remain within this range.
+
+Automatic movement of retained Visit material to Trash is an intended
+Product capability. The exact trigger semantics, counting rules, technical
+storage representation, deletion/purge behavior, and final destruction
+semantics remain undefined at this stage.
+
+This decision does NOT establish Audit Log, Event Sourcing, Versioning,
+technical amendment storage, database schema, API, UI, authorization
+implementation, or any other technical mechanism.
+
+B02-Q6 = FACTORY PRODUCT DECISION CLOSED
+
+
 ### B02-Q7
 Is Follow-up strictly clinical content with no system-acted-upon
 scheduling behavior?
