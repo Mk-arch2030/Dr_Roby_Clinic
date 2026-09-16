@@ -349,14 +349,33 @@ CASE_LEVEL_WORKFLOW_CONTRACT = DEFINED
 
 ## 18. NEXT GATE
 
-NEXT GATE = BUILD AUTHORIZATION / IMPLEMENTATION DEFINITION
+NEXT GATE = TECHNICAL CONTRACT DEFINITION
 
 The Contract phase is complete through CONTRACT-08.
 Contracts 01 through 08 remain authoritative and CLOSED.
-No implementation, database schema, API, UI, or authorization implementation
-is authorized merely by this transition.
 
-The next gate is to explicitly define the BUILD authorization and
-implementation boundaries before implementation begins.
+The BUILD AUTHORIZATION / IMPLEMENTATION DEFINITION has been defined,
+reconciled against the Product Manuscript and CONTRACT-01 through
+CONTRACT-08, proven, and committed as the BUILD authorization checkpoint.
+
+This checkpoint does NOT authorize implementation by itself.
+
+The next gate is to deliberately define the first technical contract
+required for implementation, beginning from the inside of the system.
+
+The next technical-definition sequence is:
+
+DOMAIN / PERSISTENCE BOUNDARY
+→ APPLICATION CAPABILITY CONTRACTS
+→ AUTHORIZATION CONTRACT
+→ API CONTRACT
+→ UI / INTERACTION CONTRACT
+→ RUNTIME / DEPLOYMENT DEFINITION
+
+DATABASE_SCHEMA, API_CONTRACT, UI_CONTRACT, and AUTHORIZATION_CONTRACT
+remain NOT_DEFINED until their respective technical contracts are
+deliberately defined and proven.
+
+No implementation is authorized merely by this transition.
 
 END OF MANUSCRIPT
