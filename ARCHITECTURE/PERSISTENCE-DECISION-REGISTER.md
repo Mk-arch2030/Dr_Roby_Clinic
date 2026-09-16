@@ -224,9 +224,17 @@ FACTORY PRODUCT DECISION CLOSED:
 - Follow-up is a distinct Visit clinical-content area.
 - Investigation and Diagnosis are NOT one combined product concept.
 
+B02-Q2 CARDINALITY DECISION CLOSED:
+
+- Current Complaint = ONE value per Visit.
+- Investigation = ZERO OR MANY entries per Visit.
+- Diagnosis = ONE value per Visit.
+- Treatment = MANY entries per Visit.
+- Follow-up = ONE value per Visit.
+- Diagnosis may be preliminary or final according to the Doctor's clinical decision.
+
 STILL UNDEFINED:
 
-- Cardinality of each clinical-content area.
 - Whether content is represented as scalar fields, structured records,
   hybrid structures, content blocks, documents, or another persistence
   representation.
@@ -235,6 +243,7 @@ STILL UNDEFINED:
 
 STATUS = BLOCKING TECHNICAL DECISION
 B02-Q1 = FACTORY PRODUCT DECISION CLOSED
+B02-Q2 = FACTORY PRODUCT DECISION CLOSED
 
 ### PDR-B03 — Past History Storage Structure
 

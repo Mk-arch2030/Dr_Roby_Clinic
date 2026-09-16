@@ -124,6 +124,36 @@ STATUS = PRODUCT DECISION OPEN
 
 ---
 
+## 5B. FACTORY PRODUCT DECISION — VISIT CLINICAL CONTENT CARDINALITY
+
+The Factory has closed B02-Q2.
+
+The cardinality decisions for Visit clinical-content areas are:
+
+- Current Complaint = ONE value per Visit.
+- Investigation = ZERO OR MANY entries per Visit.
+- Diagnosis = ONE value per Visit.
+- Treatment = MANY entries per Visit.
+- Follow-up = ONE value per Visit.
+
+Investigation and Diagnosis remain two distinct clinical-content areas.
+
+Diagnosis may be preliminary or final according to the Doctor's clinical decision.
+
+These are Product / Domain decisions only.
+
+They do NOT select:
+- database tables or columns;
+- persistence representation;
+- scalar vs structured storage;
+- amendment representation;
+- database schema;
+- API;
+- UI;
+- authorization implementation.
+
+B02-Q2 = FACTORY PRODUCT DECISION CLOSED
+
 ## 5A. FACTORY PRODUCT DECISION — INVESTIGATION AND DIAGNOSIS
 
 The Factory has closed B02-Q1.
