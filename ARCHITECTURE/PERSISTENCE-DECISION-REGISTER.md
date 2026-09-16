@@ -270,6 +270,22 @@ STILL UNDEFINED:
 - Persistence representation of amended content.
 - Whether amendment occurrence itself must be preserved.
 
+B02-Q5A CLINICAL ATTACHMENTS DECISION CLOSED:
+
+- Clinical Attachments are an established Product Capability.
+- The Doctor may retain clinical materials considered important for the Patient's clinical memory.
+- Examples include X-ray / radiology images, laboratory result images, clinical reports/documents, and other clinical material selected by the Doctor.
+- Clinical Attachments are supporting clinical materials and do not turn the product into a LIMS, laboratory pipeline, radiology system, or diagnostic interpretation system.
+
+STILL UNDEFINED:
+
+- Technical file storage.
+- Attachment metadata structure.
+- Supported file formats and limits.
+- API and UI behavior.
+- Authorization implementation.
+- Retention and deletion technical semantics.
+
 ### PDR-B03 — Past History Storage Structure
 
 PRODUCT FACT IS KNOWN:

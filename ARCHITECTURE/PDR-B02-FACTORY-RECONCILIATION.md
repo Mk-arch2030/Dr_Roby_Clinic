@@ -124,6 +124,43 @@ STATUS = PRODUCT DECISION OPEN
 
 ---
 
+## 5E. FACTORY PRODUCT DECISION — CLINICAL ATTACHMENTS
+
+The Factory has established Clinical Attachments as a Product Capability.
+
+The Doctor may retain clinical materials considered important for the Patient's clinical memory, including, but not limited to:
+
+- X-ray / radiology images.
+- Laboratory result images.
+- Clinical examination reports or documents.
+- Other clinical material the Doctor chooses to retain.
+
+Clinical Attachments are supporting clinical materials associated with the Patient / Visit context.
+
+This capability does NOT turn the product into:
+- a Laboratory Information Management System;
+- a laboratory pipeline;
+- a radiology system;
+- a diagnostic interpretation system.
+
+The product stores the clinical material selected by the Doctor for later clinical reference.
+
+This is a Product / Domain decision only.
+
+It does NOT define:
+- file storage technology;
+- database schema;
+- attachment metadata schema;
+- file naming;
+- file size limits;
+- supported file formats;
+- upload/download API;
+- UI;
+- authorization implementation;
+- retention/deletion technical semantics.
+
+B02-Q5A = FACTORY PRODUCT DECISION CLOSED
+
 ## 5D. FACTORY PRODUCT DECISION — VISIT NO-OVERWRITE SCOPE
 
 The Factory has closed B02-Q4.
