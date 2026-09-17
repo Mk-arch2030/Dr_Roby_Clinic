@@ -297,3 +297,27 @@ Only after that proof may the next technical definition gate be established.
 ## 12. END
 
 END OF BUILD AUTHORIZATION / IMPLEMENTATION DEFINITION V1
+
+## CONTROLLED AMENDMENT — BUILD CONTRACT READINESS
+
+AMENDMENT_STATUS = CONTROLLED AMENDMENT
+IMPLEMENTATION_AUTHORIZED = NO
+
+ESTABLISHED_TECHNICAL_CONTRACTS:
+- Persistence Schema = CLOSED + PROVEN
+- Authorization Technical Contract = CLOSED + PROVEN
+- API Technical Contract = CLOSED + PROVEN
+- UI Interaction Technical Contract = CLOSED + PROVEN
+- Persistence Technical Contract = CONTROLLED AMENDMENT
+- Application Capability Contract = CONTROLLED AMENDMENT
+
+REMAINING_TECHNICAL_DEFINITION_SCOPE:
+- Authentication implementation
+- Workflow state-machine implementation
+- Technical Clinic Day protection
+- Technical audit behavior where later authorized
+- Deployment behavior
+
+CROSS_CONTRACT_INVARIANTS_PRESERVED = YES
+CONTRACT_MUTATION = PERFORMED
+IMPLEMENTATION = NOT AUTHORIZED
