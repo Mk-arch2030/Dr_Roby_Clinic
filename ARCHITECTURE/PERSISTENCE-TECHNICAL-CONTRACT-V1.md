@@ -525,3 +525,30 @@ the next technical gate.
 ---
 
 STATUS = DEFINITION DRAFT
+
+## CONTROLLED AMENDMENT — A01-A04
+
+AMENDMENT_STATUS = CONTROLLED AMENDMENT
+IMPLEMENTATION_AUTHORIZED = NO
+
+A01 — ARRIVAL PATIENT CONDITION
+Each Visit may persist one arrival patient condition:
+Normal / Moderately Unwell / Severely Unwell.
+This is Visit-level operational intake information and is distinct from
+Vital Signs, Diagnosis, Treatment, Clinical Decision, and Past History.
+
+A02 — NURSE CURRENT COMPLAINT INTAKE
+Current Complaint remains exactly one per Visit. Nurse collection does not
+create a new structural domain object or replace the Visit-level model.
+
+A03 — NURSE INITIAL PAST HISTORY COLLECTION
+Past History remains Patient-level and authoritative Doctor-controlled.
+Nurse collection does not create a new structural domain object.
+
+A04 — SEND TO DOCTOR
+Send to Doctor creates no new persistence object, Case state, Visit state,
+or completion/closure state.
+
+CROSS_CONTRACT_INVARIANTS_PRESERVED = YES
+CONTRACT_MUTATION = PERFORMED
+IMPLEMENTATION = NOT AUTHORIZED

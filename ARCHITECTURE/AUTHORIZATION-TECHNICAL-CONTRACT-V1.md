@@ -246,3 +246,31 @@ AUTHORIZATION CONTRACT CLOSURE DECISION:
 AUTHORIZATION_TECHNICAL_CONTRACT_V1 = CLOSED + PROVEN
 
 IMPLEMENTATION = NOT AUTHORIZED
+
+## CONTROLLED AMENDMENT — A01-A04
+
+STATUS = CONTROLLED AMENDMENT
+IMPLEMENTATION_AUTHORIZED = NO
+
+A01 — ARRIVAL PATIENT CONDITION
+Uses existing Nurse Patient Entry / Arrival delegation.
+No new Nurse permission.
+
+A02 — NURSE CURRENT COMPLAINT INTAKE
+Uses existing Nurse Patient Data Recording delegation.
+No new Nurse permission.
+
+A03 — NURSE INITIAL PAST HISTORY COLLECTION
+Uses existing Nurse Patient Data Recording delegation.
+Collection does not grant Past History authority.
+Doctor remains authoritative.
+
+A04 — SEND TO DOCTOR
+Uses existing Nurse Doctor Notification delegation.
+No new Nurse permission.
+
+AUTHORITY_TRANSFER = NO
+ADDITIONAL_NURSE_PERMISSION = NO
+CROSS_CONTRACT_INVARIANTS_PRESERVED = YES
+CONTRACT_MUTATION = PERFORMED
+IMPLEMENTATION = NOT AUTHORIZED

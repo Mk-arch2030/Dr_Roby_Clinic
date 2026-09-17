@@ -269,3 +269,29 @@ IMPLEMENTATION = NOT AUTHORIZED
 ## 20. NEXT GATE
 
 NEXT GATE = UI IMPLEMENTATION DEFINITION / BUILD AUTHORIZATION REVIEW
+
+## CONTROLLED AMENDMENT — A01-A04
+
+STATUS = CONTROLLED AMENDMENT
+IMPLEMENTATION_AUTHORIZED = NO
+
+A01 — ARRIVAL PATIENT CONDITION
+Nurse Arrival interaction may capture one Visit-level condition:
+Normal / Moderately Unwell / Severely Unwell.
+This is not Vital Signs or a clinical decision.
+
+A02 — NURSE CURRENT COMPLAINT INTAKE
+Nurse may capture the patient-reported Current Complaint during delegated
+intake. Doctor remains the clinical authority.
+
+A03 — NURSE INITIAL PAST HISTORY COLLECTION
+Nurse may collect patient-supplied Past History during delegated intake.
+Doctor remains authoritative for Past History.
+
+A04 — SEND TO DOCTOR
+Send to Doctor is an operational Doctor Notification interaction.
+It creates no new Case, Visit, authority, completion, or closure state.
+
+CROSS_CONTRACT_INVARIANTS_PRESERVED = YES
+CONTRACT_MUTATION = PERFORMED
+IMPLEMENTATION = NOT AUTHORIZED

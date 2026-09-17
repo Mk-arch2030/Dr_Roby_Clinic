@@ -673,3 +673,33 @@ AUTHENTICATION = NOT AUTHORIZED
 AUTHORIZATION_IMPLEMENTATION = NOT AUTHORIZED
 
 END OF APPLICATION CAPABILITY CONTRACT V1
+
+## CONTROLLED AMENDMENT — A01-A04
+
+AMENDMENT_STATUS = CONTROLLED AMENDMENT
+IMPLEMENTATION_AUTHORIZED = NO
+
+A01 — ARRIVAL PATIENT CONDITION
+Nurse delegated Arrival handling may record one Visit-level arrival condition:
+Normal / Moderately Unwell / Severely Unwell.
+This is operational intake information and is not Vital Signs, Diagnosis,
+Treatment, Clinical Decision, Case Completion, or Patient-level Past History.
+
+A02 — NURSE CURRENT COMPLAINT INTAKE
+Nurse may capture the patient-reported Current Complaint during delegated
+intake. Current Complaint remains exactly one per Visit. Clinical authority
+and interpretation remain with Doctor.
+
+A03 — NURSE INITIAL PAST HISTORY COLLECTION
+Nurse may collect patient-supplied initial Past History during delegated
+Patient Data Recording. Collection does not grant authority to add or modify
+the authoritative Past History. Doctor remains the authority.
+
+A04 — SEND TO DOCTOR
+Send to Doctor is an operational Doctor Notification interaction requesting
+Doctor attention. It creates no new Case, Visit, authority, completion,
+closure, or clinical decision.
+
+CROSS_CONTRACT_INVARIANTS_PRESERVED = YES
+CONTRACT_MUTATION = PERFORMED
+IMPLEMENTATION = NOT AUTHORIZED
