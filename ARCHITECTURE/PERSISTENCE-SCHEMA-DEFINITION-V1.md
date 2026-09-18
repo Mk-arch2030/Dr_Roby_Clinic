@@ -182,7 +182,19 @@ Visit MUST persist:
 - Clinic Day relationship;
 - Visit Type;
 - current Visit Protection State;
-- Visit Clinical Content.
+- Visit Clinical Content;
+- Arrival Patient Condition.
+
+Arrival Patient Condition:
+- Visit-level arrival/intake information.
+- Each Visit may persist one Arrival Patient Condition.
+- Approved values:
+  - Normal
+  - Moderately Unwell
+  - Severely Unwell
+- This is distinct from Vital Signs, Diagnosis, Treatment,
+  Clinical Decision, and Patient-level Past History.
+- Physical persistence representation remains DEFERRED.
 
 Approved Visit Type:
 
