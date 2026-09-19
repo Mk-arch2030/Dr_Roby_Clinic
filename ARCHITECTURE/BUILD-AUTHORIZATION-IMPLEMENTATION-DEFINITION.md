@@ -209,24 +209,27 @@ layer is treated as established.
 
 ---
 
-## 8. TECHNICAL CONTRACTS STILL REQUIRED
+## 8. TECHNICAL CONTRACT STATUS AND REMAINING DEFINITION
+The following technical definitions have already been deliberately established
+and proven, or are under controlled amendment:
 
-The following technical contracts remain to be deliberately defined before
-their implementation is treated as authorized:
+ESTABLISHED_TECHNICAL_CONTRACTS:
+- Persistence Schema = CLOSED + PROVEN
+- Authorization Technical Contract = CLOSED + PROVEN
+- API Technical Contract = CLOSED + PROVEN
+- UI Interaction Technical Contract = CLOSED + PROVEN
+- Persistence Technical Contract = CONTROLLED AMENDMENT
+- Application Capability Contract = CONTROLLED AMENDMENT
 
-- Database / persistence schema;
-- application capability contracts;
-- technical authorization rules;
-- API contracts;
-- UI / interaction contracts;
-- authentication implementation;
-- workflow state-machine implementation;
-- technical Clinic Day protection;
-- technical audit behavior where later authorized;
-- deployment behavior.
+REMAINING_TECHNICAL_DEFINITION_SCOPE:
+- Authentication implementation
+- Workflow state-machine implementation
+- Technical Clinic Day protection
+- Technical audit behavior where later authorized
+- Deployment behavior
 
-This document does not invent those technical contracts.
-
+This document does not invent or independently authorize any technical
+contract or implementation.
 ---
 
 ## 9. EXPLICIT BUILD NON-AUTHORIZATION
@@ -276,22 +279,25 @@ A failed proof stops progression until the defect is understood and resolved.
 ---
 
 ## 11. CURRENT GATE
-
-BUILD_AUTHORIZATION = DEFINITION DRAFT
+BUILD_AUTHORIZATION = CONTROLLED AMENDMENT
 IMPLEMENTATION_AUTHORIZED = NO
 DATABASE_SCHEMA_AUTHORIZED = NO
 API_AUTHORIZED = NO
 UI_AUTHORIZED = NO
 AUTHORIZATION_IMPLEMENTATION_AUTHORIZED = NO
 
-The next action after this definition is proof and reconciliation against:
+CURRENT_ACTION = CONTROLLED_BUILD_DEFINITION_MUTATION
+NEXT_GATE = CONTROLLED_BUILD_DEFINITION_PROOF_AND_RECONCILIATION
 
+The amendment must preserve:
 - the Product Manuscript;
 - CONTRACT-01 through CONTRACT-08;
-- existing project boundaries.
+- established technical contracts;
+- existing project boundaries;
+- existing build order;
+- all cross-contract invariants.
 
-Only after that proof may the next technical definition gate be established.
-
+No implementation authorization is created by this amendment.
 ---
 
 ## 12. END
