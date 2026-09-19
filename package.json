@@ -1,0 +1,24 @@
+{
+  "name": "dr_roby_clinic",
+  "version": "1.0.0",
+  "description": "Small, focused, useful, provable, repeatable, sellable clinic product.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mk-arch2030/Dr_Roby_Clinic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Mk-arch2030/Dr_Roby_Clinic/issues"
+  },
+  "homepage": "https://github.com/Mk-arch2030/Dr_Roby_Clinic#readme",
+  "dependencies": {
+    "fastify": "^5.12.5"
+  }
+}
