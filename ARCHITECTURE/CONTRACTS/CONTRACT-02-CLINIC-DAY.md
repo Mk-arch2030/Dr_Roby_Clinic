@@ -168,4 +168,50 @@ CONTRACT-02_SCHEMA_AUTHORIZED = NO
 CONTRACT-02_API_AUTHORIZED = NO
 CONTRACT-02_UI_AUTHORIZED = NO
 
+
+
+## CONTROLLED AMENDMENT — CLINIC DAY START / OPEN
+
+The Clinic Day lifecycle MUST begin through an explicit operational Start / Open action.
+
+Clinic Day Start establishes the active working-date context for the clinic.
+
+The Clinic Day Start action belongs to the Doctor / Main Admin.
+
+Clinic Day Start MUST NOT:
+- complete a Case;
+- create a Case by itself;
+- create a Visit by itself;
+- replace Patient identity;
+- replace Case identity;
+- replace Visit identity;
+- transfer system ownership;
+- transfer clinical authority;
+- grant Nurse clinical authority;
+- override the existing Clinic Day closure rules.
+
+The Clinic Day Start establishes the working context in which approved Cases and Visits may be recorded for that working date.
+
+The existing Clinic Day closure rules remain unchanged:
+- Clinic Day closure remains explicit.
+- Doctor / Main Admin retains closure authority.
+- Midnight MUST NOT automatically close the Clinic Day.
+- Closing a Clinic Day MUST NOT complete an open Case.
+- An open Case MAY continue into a later Clinic Day.
+- Daily data MUST remain preserved.
+
+CLINIC_DAY_START = EXPLICIT
+CLINIC_DAY_OPEN = ESTABLISHED_BY_START
+START_AUTHORITY = DOCTOR / MAIN ADMIN
+START_CREATES_CASE = NO
+START_CREATES_VISIT = NO
+START_COMPLETES_CASE = NO
+START_TRANSFERS_AUTHORITY = NO
+NURSE_START_AUTHORITY = NO
+CLOSURE_RULES = PRESERVED
+IMPLEMENTATION_AUTHORIZED = NO
+SCHEMA_AUTHORIZED = NO
+API_AUTHORIZED = NO
+UI_AUTHORIZED = NO
+
 END OF CONTRACT-02
