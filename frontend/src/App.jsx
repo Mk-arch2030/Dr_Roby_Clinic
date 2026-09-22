@@ -167,6 +167,60 @@ function App() {
                     </div>
                   </section>
 
+                  <section className="patient-journey-continuity" aria-label="Patient Journey Continuity">
+                    <div className="section-heading">
+                      <div>
+                        <p className="eyebrow">PATIENT JOURNEY</p>
+                        <h3>Patient Journey Continuity</h3>
+                      </div>
+                      <span className="derived-badge">READ-ONLY</span>
+                    </div>
+
+                    <div className="continuity-summary">
+                      <div>
+                        <span>Patient</span>
+                        <strong>{patient.name}</strong>
+                      </div>
+                      <div>
+                        <span>Case</span>
+                        <strong>{visit.caseId}</strong>
+                      </div>
+                      <div>
+                        <span>Recorded Visits</span>
+                        <strong>{selectedVisit.clinicalHistory.length}</strong>
+                      </div>
+                      <div>
+                        <span>Current Clinic Day</span>
+                        <strong>{visit.clinicDayId}</strong>
+                      </div>
+                    </div>
+
+                    <div className="journey-timeline">
+                      {selectedVisit.clinicalHistory.map((historyVisit) => (
+                        <article className="journey-entry" key={historyVisit.id}>
+                          <div className="journey-entry-head">
+                            <strong>{historyVisit.id}</strong>
+                            <span>{historyVisit.clinicDayId}</span>
+                          </div>
+                          <div className="journey-entry-meta">
+                            <span>{historyVisit.date}</span>
+                            <span>{historyVisit.time}</span>
+                            <span>{historyVisit.visitType}</span>
+                            <span>{historyVisit.protectionState}</span>
+                          </div>
+                          <p>
+                            {historyVisit.currentComplaint ||
+                              "No current complaint recorded."}
+                          </p>
+                        </article>
+                      ))}
+                    </div>
+
+                    <div className="relationship-strip">
+                      Patient → Case → Visit → Clinic Day
+                    </div>
+                  </section>
+
                   <div className="identity-block">
                   <strong>{patient.name}</strong>
                   <span>
