@@ -1,210 +1,299 @@
 import { useMemo, useState } from 'react';
-import { getClinicDashboard } from './adapters/mockClinicService';
-
-const statusLabels = {
-  AWAITING_DOCTOR: 'Awaiting Doctor',
-  WITH_DOCTOR: 'With Doctor',
-  CONTINUING: 'Continuing',
-};
-
-const caseStatusLabels = {
-  AWAITING_DOCTOR: 'Awaiting Doctor',
-  WITH_DOCTOR: 'With Doctor',
-  AWAITING_FOLLOW_UP: 'Awaiting Follow-up',
-};
+import {
+  getClinicDashboard,
+  getVisitDetails,
+} from './adapters/mockClinicService';
+import './styles/app.css';
 
 function App() {
-  const clinic = useMemo(() => getClinicDashboard(), []);
-  const [selectedPatientId, setSelectedPatientId] = useState(null);
+  const dashboard = useMemo(() => getClinicDashboard(), []);
+  const [selectedVisitId, setSelectedVisitId] = useState(null);
 
-  const selectedPatient =
-    clinic.patients.find((patient) => patient.id === selectedPatientId) ?? null;
+  const selectedVisit = selectedVisitId
+    ? getVisitDetails(selectedVisitId)
+    : null;
 
-  const awaitingDoctor = clinic.patients.filter(
-    (patient) => patient.status === 'AWAITING_DOCTOR'
+  const awaitingDoctor = dashboard.visits.filter(
+    (visit) => visit.caseState === 'AWAITING_DOCTOR'
   );
 
-  const withDoctor = clinic.patients.filter(
-    (patient) => patient.status === 'WITH_DOCTOR'
+  const withDoctor = dashboard.visits.filter(
+    (visit) => visit.caseState === 'WITH_DOCTOR'
   );
 
-  const continuing = clinic.patients.filter(
-    (patient) => patient.status === 'CONTINUING'
+  const continuing = dashboard.visits.filter(
+    (visit) => visit.caseState === 'AWAITING_FOLLOW_UP'
   );
+
+  const patient = selectedVisit?.patient;
+  const visit = selectedVisit?.visit;
 
   return (
-    <main className="clinic-app">
-      <header className="clinic-header">
+    <main className="app-shell">
+      <header className="topbar">
         <div>
-          <p className="eyebrow">CLINIC WEB APP</p>
-          <h1>Dr.Roby Clinic</h1>
-          <p className="header-subtitle">Doctor Entry</p>
-        </div>
-
-        <div className="runtime-badge">
-          <span className="status-dot" />
-          MOCK RUNTIME
-        </div>
-      </header>
-
-      <section className="clinic-day-card" aria-label="Current Clinic Day">
-        <div>
-          <p className="section-label">CURRENT CLINIC DAY</p>
-          <h2>{clinic.clinicDay.date}</h2>
-          <p className="muted">
-            Status: {clinic.clinicDay.status} · Lifecycle:{' '}
-            {clinic.clinicDay.lifecycle}
+          <p className="eyebrow">DR.ROBY CLINIC</p>
+          <h1>Doctor Entry</h1>
+          <p className="subtitle">
+            Clinic Day operational view with recorded Visits
           </p>
         </div>
+        <span className="runtime-badge">MOCK RUNTIME</span>
+      </header>
 
-        <div className="day-counter" aria-label="Clinic Day counter">
-          <strong>{clinic.clinicDay.counter}</strong>
-          <span>Patients</span>
+      <section className="clinic-day-card">
+        <div>
+          <p className="section-label">CURRENT CLINIC DAY</p>
+          <h2>{dashboard.clinicDay.date}</h2>
+          <div className="meta-row">
+            <span>Status: {dashboard.clinicDay.status}</span>
+            <span>Lifecycle: {dashboard.clinicDay.lifecycle}</span>
+            <span>Daily Count: {dashboard.clinicDay.counter}</span>
+          </div>
+        </div>
+        <div className="day-id">
+          <strong>{dashboard.clinicDay.id}</strong>
+          <span>Recorded Visits: {dashboard.visits.length}</span>
         </div>
       </section>
 
-      <section className="entry-actions" aria-label="Clinic entry actions">
-        <button type="button" onClick={() => setSelectedPatientId(null)}>
+      <nav className="entry-actions" aria-label="Doctor entry">
+        <button type="button" onClick={() => setSelectedVisitId(null)}>
           Patients
         </button>
-        <button type="button" onClick={() => setSelectedPatientId(null)}>
+        <button type="button" onClick={() => setSelectedVisitId(null)}>
           Patient Data
         </button>
-        <button type="button" onClick={() => setSelectedPatientId(null)}>
+        <button type="button" onClick={() => setSelectedVisitId(null)}>
           New Patient
         </button>
-      </section>
+      </nav>
 
-      <section className="dashboard-grid">
-        <div className="patient-worklist">
-          <div className="section-heading">
-            <div>
-              <p className="section-label">TODAY</p>
-              <h2>Clinic Patients</h2>
+      <section className="layout-grid">
+        <div className="main-column">
+          <section className="panel">
+            <div className="panel-heading">
+              <div>
+                <p className="section-label">CLINIC DAY VISITS</p>
+                <h2>Recorded Visits</h2>
+              </div>
+              <span className="count-badge">{dashboard.visits.length}</span>
             </div>
-            <span className="count-badge">{clinic.patients.length}</span>
-          </div>
 
-          <div className="patient-groups">
-            <PatientGroup
+            <p className="helper-text">
+              Each Visit remains distinct and preserves its Patient, Case,
+              Clinic Day, chronology, and existing context.
+            </p>
+
+            <VisitGroup
               title="Awaiting Doctor"
-              patients={awaitingDoctor}
-              onSelect={setSelectedPatientId}
-              selectedPatientId={selectedPatientId}
+              visits={awaitingDoctor}
+              selectedVisitId={selectedVisitId}
+              onSelect={setSelectedVisitId}
             />
 
-            <PatientGroup
+            <VisitGroup
               title="With Doctor"
-              patients={withDoctor}
-              onSelect={setSelectedPatientId}
-              selectedPatientId={selectedPatientId}
+              visits={withDoctor}
+              selectedVisitId={selectedVisitId}
+              onSelect={setSelectedVisitId}
             />
 
-            <PatientGroup
+            <VisitGroup
               title="Continuing Patients / Cases"
-              patients={continuing}
-              onSelect={setSelectedPatientId}
-              selectedPatientId={selectedPatientId}
+              visits={continuing}
+              selectedVisitId={selectedVisitId}
+              onSelect={setSelectedVisitId}
             />
-          </div>
+          </section>
         </div>
 
-        <aside className="patient-inspection" aria-label="Selected Patient">
-          <div className="section-heading">
-            <div>
-              <p className="section-label">PATIENT INSPECTION</p>
-              <h2>Selected Patient</h2>
-            </div>
-          </div>
-
-          {selectedPatient ? (
-            <div className="inspection-content">
-              <h3>{selectedPatient.name}</h3>
-
-              <dl>
-                <div>
-                  <dt>Patient ID</dt>
-                  <dd>{selectedPatient.id}</dd>
-                </div>
-                <div>
-                  <dt>CPN</dt>
-                  <dd>{selectedPatient.cpn}</dd>
-                </div>
-                <div>
-                  <dt>Patient Status</dt>
-                  <dd>{statusLabels[selectedPatient.status]}</dd>
-                </div>
-                <div>
-                  <dt>Case</dt>
-                  <dd>{selectedPatient.caseId}</dd>
-                </div>
-                <div>
-                  <dt>Case Status</dt>
-                  <dd>{caseStatusLabels[selectedPatient.caseStatus]}</dd>
-                </div>
-                <div>
-                  <dt>Last Visit</dt>
-                  <dd>{selectedPatient.lastVisit}</dd>
-                </div>
-              </dl>
-
-              <div className="relationship">
-                Patient → Case → Visit → Clinic Day
+        <aside className="side-column">
+          <section className="panel detail-panel">
+            <div className="panel-heading">
+              <div>
+                <p className="section-label">SELECTED VISIT</p>
+                <h2>Visit Inspection</h2>
               </div>
+              {visit && (
+                <span className="count-badge">{visit.id}</span>
+              )}
             </div>
-          ) : (
-            <div className="empty-selection">
-              <strong>No patient selected</strong>
-              <p>
-                Select a patient to inspect stable identity and continuing
-                Case context.
-              </p>
-            </div>
-          )}
+
+            {!visit ? (
+              <div className="empty-state">
+                <strong>Select a Visit</strong>
+                <p>
+                  Choose a recorded Visit from the Clinic Day to inspect its
+                  organized details and continuity.
+                </p>
+              </div>
+            ) : (
+              <>
+                <section className="inspection-summary" aria-label="Visit Inspection Summary">
+                    <div className="section-heading">
+                      <div>
+                        <p className="eyebrow">DOCTOR INSPECTION</p>
+                        <h3>Inspection Summary</h3>
+                      </div>
+                      <span className="derived-badge">READ-ONLY CONTEXT</span>
+                    </div>
+
+                    <div className="inspection-grid">
+                      <div>
+                        <span>Patient</span>
+                        <strong>{patient.name}</strong>
+                      </div>
+                      <div>
+                        <span>Case</span>
+                        <strong>{visit.caseId}</strong>
+                      </div>
+                      <div>
+                        <span>Visit</span>
+                        <strong>{visit.id}</strong>
+                      </div>
+                      <div>
+                        <span>Clinic Day</span>
+                        <strong>{visit.clinicDayId}</strong>
+                      </div>
+                      <div>
+                        <span>Case Workflow</span>
+                        <strong>{visit.caseState}</strong>
+                      </div>
+                      <div>
+                        <span>Protection</span>
+                        <strong>{visit.protectionState}</strong>
+                      </div>
+                    </div>
+                  </section>
+
+                  <div className="identity-block">
+                  <strong>{patient.name}</strong>
+                  <span>
+                    {patient.id} · {patient.cpn}
+                  </span>
+                </div>
+
+                <div className="detail-grid">
+                  <Detail label="Case" value={visit.caseId} />
+                  <Detail
+                    label="Clinic Day"
+                    value={visit.clinicDayId}
+                  />
+                  <Detail label="Date" value={visit.date} />
+                  <Detail label="Time" value={visit.time} />
+                  <Detail label="Visit Type" value={visit.visitType} />
+                  <Detail label="Case Workflow" value={visit.caseState} />
+                  <Detail
+                    label="Protection"
+                    value={visit.protectionState}
+                  />
+                  <Detail
+                    label="Arrival Condition"
+                    value={visit.arrivalCondition}
+                  />
+                </div>
+
+                <div className="detail-section">
+                  <span className="detail-label">Operational Context</span>
+                  <p>{visit.operationalContext}</p>
+                </div>
+
+                <div className="detail-section">
+                  <span className="detail-label">Current Complaint</span>
+                  <p>{visit.currentComplaint}</p>
+                </div>
+
+                <div className="detail-section">
+                  <span className="detail-label">Doctor Context</span>
+                  <p>{visit.doctorContext}</p>
+                </div>
+
+                <div className="detail-section">
+                  <span className="detail-label">Visit Chronology</span>
+                  <p>{visit.chronology}</p>
+                </div>
+
+                <div className="history-block">
+                  <div className="history-heading">
+                    <span className="detail-label">Clinical History</span>
+                    <span className="derived-badge">DERIVED FROM VISITS</span>
+                  </div>
+
+                  {selectedVisit.clinicalHistory.map((item) => (
+                    <div className="history-item" key={item.visitId}>
+                      <strong>{item.visitId}</strong>
+                      <span>{item.date}</span>
+                      <p>{item.summary}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="relationship">
+                  Patient → Case → Visit → Clinic Day
+                </div>
+              </>
+            )}
+          </section>
         </aside>
       </section>
 
-      <footer className="clinic-footer">
-        <span>Frontend Foundation · Increment 01</span>
-        <span>Data Source: Mock Adapter</span>
+      <footer>
+        Doctor Clinical Authority · Nurse delegated boundary preserved ·
+        Frontend → Service Boundary → Mock Adapter
       </footer>
     </main>
   );
 }
 
-function PatientGroup({ title, patients, onSelect, selectedPatientId }) {
+function VisitGroup({ title, visits, selectedVisitId, onSelect }) {
   return (
-    <section className="patient-group">
+    <section className="visit-group">
       <div className="group-heading">
         <h3>{title}</h3>
-        <span>{patients.length}</span>
+        <span>{visits.length}</span>
       </div>
 
-      {patients.length === 0 ? (
-        <p className="group-empty">No patients in this group.</p>
+      {visits.length === 0 ? (
+        <div className="group-empty">No recorded Visits in this group.</div>
       ) : (
-        <div className="patient-list">
-          {patients.map((patient) => (
+        <div className="visit-list">
+          {visits.map((visit) => (
             <button
-              className={`patient-row ${
-                patient.id === selectedPatientId ? 'selected' : ''
-              }`}
-              key={patient.id}
               type="button"
-              onClick={() => onSelect(patient.id)}
+              className={`visit-card ${
+                selectedVisitId === visit.id ? 'selected' : ''
+              }`}
+              key={visit.id}
+              onClick={() => onSelect(visit.id)}
             >
+              <div className="visit-card-top">
+                <strong>{visit.id}</strong>
+                <span>{visit.time}</span>
+              </div>
+              <strong>{visit.patientName}</strong>
               <span>
-                <strong>{patient.name}</strong>
-                <small>{patient.cpn}</small>
+                {visit.caseId} · {visit.visitType}
               </span>
-              <span className="patient-case">
-                {patient.caseId}
-              </span>
+              <div className="visit-context-row">
+                <span>Case: {visit.caseState}</span>
+                <span>Protection: {visit.protectionState}</span>
+              </div>
+              <small>{visit.operationalContext}</small>
             </button>
           ))}
         </div>
       )}
     </section>
+  );
+}
+
+function Detail({ label, value }) {
+  return (
+    <div className="detail-item">
+      <span className="detail-label">{label}</span>
+      <strong>{value}</strong>
+    </div>
   );
 }
 
