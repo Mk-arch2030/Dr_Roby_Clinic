@@ -2,7 +2,7 @@
 
 DOCUMENT = POSTGRESQL SCHEMA IMPLEMENTATION DEFINITION
 PRODUCT = Dr.Roby Clinic
-STATUS = DEFINITION DRAFT
+STATUS = DEFINITION CLOSED
 
 ---
 
@@ -139,10 +139,11 @@ PROPOSED COLUMN:
 
 Representation:
 
-- Physical identifier type = DEFERRED.
-- Physical identifier generation mechanism = DEFERRED.
+- Physical identifier type = PostgreSQL `UUID`.
+- Physical identifier generation mechanism = PostgreSQL 18 native `uuidv7()`.
+- Authority = POSTGRESQL-PHYSICAL-DATA-TYPES-DECISION-V1.
 - The technical Patient persistence identifier remains distinct from CPN.
-- The final physical representation requires a separate bounded technical decision.
+- Physical representation is authorized by POSTGRESQL-PHYSICAL-DATA-TYPES-DECISION-V1.
 
 Meaning:
 
@@ -224,7 +225,8 @@ PROPOSED COLUMN:
 
 Representation:
 
-- Physical storage type = DEFERRED.
+- Physical storage type = PostgreSQL `TEXT`.
+- Authority = POSTGRESQL-PHYSICAL-DATA-TYPES-DECISION-V1.
 - Required according to the established Patient information boundary.
 
 No phone normalization algorithm, validation algorithm, physical storage type,
@@ -238,7 +240,8 @@ PROPOSED COLUMN:
 
 Representation:
 
-- Physical storage type = DEFERRED.
+- Physical storage type = PostgreSQL `TEXT`.
+- Authority = POSTGRESQL-PHYSICAL-DATA-TYPES-DECISION-V1.
 - Required according to the established Patient information boundary.
 
 Allowed Product values:
@@ -485,15 +488,15 @@ CLOSED_DECISION_REOPENED = NO
 
 ## 19. DEFERRED PHYSICAL DECISIONS PRESERVED
 
-The following physical decisions remain explicitly unresolved:
+The physical decisions formerly deferred by this definition are now resolved by
+POSTGRESQL-PHYSICAL-DATA-TYPES-DECISION-V1:
 
-- technical Patient identifier type;
-- technical Patient identifier generation mechanism;
-- physical Phone storage type;
-- physical Gender storage type.
+- technical Patient identifier type = PostgreSQL `UUID`;
+- technical Patient identifier generation mechanism = PostgreSQL 18 native `uuidv7()`;
+- physical Phone storage type = PostgreSQL `TEXT`;
+- physical Gender storage type = PostgreSQL `TEXT`.
 
-No UUID, numeric identifier, BIGINT, identity column, serial mechanism,
-or other physical representation is selected by this definition.
+No numeric identifier, BIGINT, identity column, or serial mechanism is selected.
 
 ---
 
