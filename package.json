@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Mk-arch2030/Dr_Roby_Clinic#readme",
   "dependencies": {
     "fastify": "^5.12.5",
+    "pg": "^8.23.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
