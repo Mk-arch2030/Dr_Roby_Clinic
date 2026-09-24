@@ -28,7 +28,6 @@ The implementation MUST preserve:
 - Nurse delegated operational participation
 - existing Application Capability inventory
 - existing A01-A04 controlled amendments
-- A01-A04 implementation remains NOT AUTHORIZED
 - existing authorization boundaries
 - existing persistence boundaries
 - existing API boundaries
@@ -39,13 +38,8 @@ The implementation MUST preserve:
 
 APPLICATION_CAPABILITY_IMPLEMENTATION = AUTHORIZED
 
-A01-A04 IMPLEMENTATION = NOT AUTHORIZED
-
 Authorized work is limited to materializing the already-defined
-Application Capability contracts that are currently implementation-authorized.
-
-A01-A04 remain defined controlled amendments and are excluded from the
-current implementation scope.
+Application Capability contracts.
 
 No new capability may be introduced.
 
@@ -89,8 +83,6 @@ Technical mechanisms not established by the contract MUST NOT be invented.
 No capability may silently acquire persistence, API, UI,
 authentication, authorization, or deployment behavior.
 
-A01-A04 MUST NOT acquire implementation behavior under this decision.
-
 ## PROOF REQUIREMENTS
 
 The resulting implementation MUST prove:
@@ -111,8 +103,4 @@ APPLICATION_CAPABILITY_IMPLEMENTATION_AUTHORIZATION = CLOSED DECISION
 
 IMPLEMENTATION_AUTHORIZED = YES
 
-A01-A04 IMPLEMENTATION_AUTHORIZED = NO
-
-AUTHORIZATION_SCOPE_RECONCILIATION = CLOSED + PROVEN
-
-NEXT GATE = APPLICATION CAPABILITY IMPLEMENTATION — EXCLUDING A01-A04
+NEXT GATE = APPLICATION CAPABILITY IMPLEMENTATION
