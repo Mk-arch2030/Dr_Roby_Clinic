@@ -6,6 +6,8 @@ function registerNewPatient({
   age,
   profession,
   pastHistory,
+  phone,
+  gender,
 }) {
   return new Patient({
     clinicPatientNumber,
@@ -13,6 +15,8 @@ function registerNewPatient({
     age,
     profession,
     pastHistory,
+    phone,
+    gender,
   });
 }
 

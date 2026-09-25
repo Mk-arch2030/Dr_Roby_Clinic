@@ -130,3 +130,36 @@ DATABASE SCHEMA IMPLEMENTATION PLAN AND BOUNDED STRUCTURAL MAPPING
 
 The next gate MUST define the implementation approach while preserving
 the deferred SQL, migration, ORM, and repository boundaries.
+
+## CANONICAL AUTHORITY SYNCHRONIZATION — PATIENT REPOSITORY INCREMENT
+
+This record supersedes only the previously bounded NO state for the
+specific Patient Repository increment reconciled by
+PERSISTENCE-ACCESS-MECHANISM-DECISION-V1.md.
+
+REPOSITORY_IMPLEMENTATION_AUTHORIZED = YES
+SQL_IMPLEMENTATION_AUTHORIZED = YES
+
+The SQL authorization is strictly limited to SQL required exclusively
+for the authorized Patient Repository behavior.
+
+MIGRATION_IMPLEMENTATION_AUTHORIZED = NO
+ORM_IMPLEMENTATION_AUTHORIZED = NO
+
+No generic persistence framework, generic repository framework,
+unrelated repository, unrelated domain persistence, API/UI/auth/authz,
+deployment, new actor, authority transfer, new product capability,
+or unrelated deferred technical decision is authorized.
+
+PATIENT_TECHNICAL_IDENTITY = DISTINCT_FROM_CPN
+CPN_AUTHORITY = POSTGRESQL
+CPN_ALLOCATION_MECHANISM = POSTGRESQL_SEQUENCE
+PATIENT_REGISTRATION_TRANSACTION = PRESERVED
+NO_PARTIAL_PATIENT_REGISTRATION = REQUIRED
+
+REPOSITORY_IMPLEMENTATION = NOT_PERFORMED
+SQL_IMPLEMENTATION = NOT_PERFORMED
+MIGRATION_IMPLEMENTATION = NOT_PERFORMED
+ORM_IMPLEMENTATION = NOT_PERFORMED
+
+CANONICAL_AUTHORITY_SYNCHRONIZATION = CLOSED + PROVEN

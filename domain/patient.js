@@ -4,7 +4,9 @@ class Patient {
     name,
     age,
     profession,
-    pastHistory
+    pastHistory,
+    phone,
+    gender
   }) {
     if (!clinicPatientNumber) {
       throw new Error('Clinic Patient Number is required');
@@ -15,6 +17,8 @@ class Patient {
     this.age = age;
     this.profession = profession;
     this.pastHistory = pastHistory;
+    this.phone = phone;
+    this.gender = gender;
   }
 }
 

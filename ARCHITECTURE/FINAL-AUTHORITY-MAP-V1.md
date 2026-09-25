@@ -309,3 +309,51 @@ AUTHORITY_CHRONOLOGY = RECONCILED
 AUTHORITY_MAP_EFFECT = NONE
 CONTRACT_MUTATION = NO
 UNAUTHORIZED_SCOPE_EXPANSION = NO
+
+## CANONICAL AUTHORITY SYNCHRONIZATION — PATIENT REPOSITORY INCREMENT
+
+This record supersedes only the previously bounded NO state for the
+specific Patient Repository increment reconciled by
+PERSISTENCE-ACCESS-MECHANISM-DECISION-V1.md.
+
+REPOSITORY_IMPLEMENTATION_AUTHORIZED = YES
+SQL_IMPLEMENTATION_AUTHORIZED = YES
+
+SQL authorization is limited exclusively to SQL required to materialize
+the authorized Patient Repository behavior.
+
+MIGRATION_IMPLEMENTATION_AUTHORIZED = NO
+ORM_IMPLEMENTATION_AUTHORIZED = NO
+
+The following remain unauthorized:
+
+- generic persistence framework;
+- generic repository framework;
+- unrelated repositories;
+- unrelated domain persistence;
+- Patient Merge;
+- deletion or retention;
+- audit or event sourcing;
+- caching;
+- API scope expansion;
+- UI scope expansion;
+- authentication implementation;
+- authorization implementation;
+- deployment implementation;
+- new actors;
+- authority transfer;
+- new product capability;
+- unrelated deferred technical decisions.
+
+PATIENT_TECHNICAL_IDENTITY = DISTINCT_FROM_CPN
+CPN_AUTHORITY = POSTGRESQL
+CPN_ALLOCATION_MECHANISM = POSTGRESQL_SEQUENCE
+PATIENT_REGISTRATION_TRANSACTION = PRESERVED
+NO_PARTIAL_PATIENT_REGISTRATION = REQUIRED
+
+REPOSITORY_IMPLEMENTATION = NOT_PERFORMED
+SQL_IMPLEMENTATION = NOT_PERFORMED
+MIGRATION_IMPLEMENTATION = NOT_PERFORMED
+ORM_IMPLEMENTATION = NOT_PERFORMED
+
+CANONICAL_AUTHORITY_SYNCHRONIZATION = CLOSED + PROVEN
