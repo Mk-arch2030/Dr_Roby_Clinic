@@ -4,7 +4,6 @@ async function registerNewPatient({
   name,
   age,
   profession,
-  pastHistory,
   phone,
   gender,
   repository,
@@ -23,7 +22,6 @@ async function registerNewPatient({
       name,
       age,
       profession,
-      pastHistory,
       phone,
       gender,
     });

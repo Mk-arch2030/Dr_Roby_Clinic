@@ -43,7 +43,6 @@ test('REGISTER NEW PATIENT performs bounded transactional registration', async (
 
       assert.equal(patient.clinicPatientNumber, 'CPN-2');
       assert.equal(patient.name, 'Test Patient');
-      assert.equal(patient.pastHistory, 'None');
     },
   };
 
@@ -51,7 +50,6 @@ test('REGISTER NEW PATIENT performs bounded transactional registration', async (
     name: 'Test Patient',
     age: 30,
     profession: 'Engineer',
-    pastHistory: 'None',
     phone: '01000000000',
     gender: 'Male',
     repository,
@@ -60,7 +58,6 @@ test('REGISTER NEW PATIENT performs bounded transactional registration', async (
 
   assert.equal(patient.clinicPatientNumber, 'CPN-2');
   assert.equal(patient.name, 'Test Patient');
-  assert.equal(patient.pastHistory, 'None');
 
   assert.deepEqual(calls, [
     'CONNECT',
@@ -114,7 +111,6 @@ test('REGISTER NEW PATIENT rolls back when persistence fails', async () => {
         name: 'Rollback Patient',
         age: 31,
         profession: 'Engineer',
-        pastHistory: 'None',
         phone: '01000000001',
         gender: 'Male',
         repository,
