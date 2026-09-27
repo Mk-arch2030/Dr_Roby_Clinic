@@ -17,7 +17,7 @@ test('PatientRepository creates a patient through PostgreSQL INSERT and returns 
           patient_id: params[0],
           clinic_patient_number: params[1],
           name: params[2],
-          age: params[3],
+          date_of_birth: params[3],
           profession: params[4],
           phone: params[5],
           gender: params[6],
@@ -31,7 +31,7 @@ test('PatientRepository creates a patient through PostgreSQL INSERT and returns 
   const patient = await repository.createPatient({
     clinicPatientNumber: 'CPN-1',
     name: 'Test Patient',
-    age: 30,
+    dateOfBirth: '1990-02-01',
     profession: 'Engineer',
     phone: '01000000000',
     gender: 'Male',
@@ -44,7 +44,7 @@ test('PatientRepository creates a patient through PostgreSQL INSERT and returns 
   assert.match(calls[0].params[0], /^[0-9a-f-]{36}$/i);
   assert.equal(calls[0].params[1], 'CPN-1');
   assert.equal(calls[0].params[2], 'Test Patient');
-  assert.equal(calls[0].params[3], 30);
+  assert.equal(calls[0].params[3], '1990-02-01');
   assert.equal(calls[0].params[4], 'Engineer');
   assert.equal(calls[0].params[5], '01000000000');
   assert.equal(calls[0].params[6], 'Male');
@@ -65,7 +65,7 @@ test('PatientRepository retrieves a patient by technical patient identity', asyn
           patient_id: params[0],
           clinic_patient_number: 'CPN-7',
           name: 'Existing Patient',
-          age: 40,
+          dateOfBirth: '1990-02-01',
           profession: 'Doctor',
           phone: '01111111111',
           gender: 'Female',

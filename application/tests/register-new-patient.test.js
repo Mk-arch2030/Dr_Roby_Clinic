@@ -48,7 +48,7 @@ test('REGISTER NEW PATIENT performs bounded transactional registration', async (
 
   const patient = await registerNewPatient({
     name: 'Test Patient',
-    age: 30,
+    dateOfBirth: '1996-01-01',
     profession: 'Engineer',
     phone: '01000000000',
     gender: 'Male',
@@ -109,7 +109,7 @@ test('REGISTER NEW PATIENT rolls back when persistence fails', async () => {
     () =>
       registerNewPatient({
         name: 'Rollback Patient',
-        age: 31,
+        dateOfBirth: '1995-01-01',
         profession: 'Engineer',
         phone: '01000000001',
         gender: 'Male',

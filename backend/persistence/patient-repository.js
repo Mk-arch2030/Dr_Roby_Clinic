@@ -1,4 +1,5 @@
 const { randomUUID } = require('node:crypto');
+const { calculateAge } = require('../../domain/patient');
 
 class PatientRepository {
   constructor(pool) {
@@ -21,7 +22,7 @@ class PatientRepository {
          patient_id,
          clinic_patient_number,
          name,
-         age,
+         date_of_birth,
          profession,
          phone,
          gender
@@ -31,7 +32,7 @@ class PatientRepository {
          patient_id,
          clinic_patient_number,
          name,
-         age,
+         date_of_birth::text AS date_of_birth,
          profession,
          phone,
          gender`,
@@ -39,14 +40,19 @@ class PatientRepository {
         technicalPatientId,
         patient.clinicPatientNumber,
         patient.name,
-        patient.age,
+        patient.dateOfBirth,
         patient.profession,
         patient.phone,
         patient.gender,
       ],
     );
 
-    return result.rows[0];
+    const row = result.rows[0];
+
+    return {
+      ...row,
+      age: calculateAge(row.date_of_birth),
+    };
   }
 
   async findByTechnicalId(patientId, client = this.pool) {
@@ -55,7 +61,7 @@ class PatientRepository {
          patient_id,
          clinic_patient_number,
          name,
-         age,
+         date_of_birth::text AS date_of_birth,
          profession,
          phone,
          gender
@@ -64,7 +70,18 @@ class PatientRepository {
       [patientId],
     );
 
-    return result.rows[0] ?? null;
+    const row = result.rows[0];
+
+    if (!row) {
+      return null;
+    }
+
+    return {
+      ...row,
+      age: row.date_of_birth
+        ? calculateAge(row.date_of_birth)
+        : null,
+    };
   }
 }
 

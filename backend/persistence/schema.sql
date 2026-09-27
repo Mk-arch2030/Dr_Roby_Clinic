@@ -7,7 +7,7 @@ CREATE TABLE patients (
     clinic_patient_number TEXT NOT NULL UNIQUE
         DEFAULT 'CPN-' || nextval('clinic_patient_number_seq')::text,
     name TEXT NOT NULL,
-    age INTEGER NOT NULL,
+    date_of_birth DATE,
     profession TEXT NOT NULL,
     phone TEXT NOT NULL,
     gender TEXT NOT NULL

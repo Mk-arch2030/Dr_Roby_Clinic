@@ -2,7 +2,7 @@ const { Patient } = require('../../domain/patient');
 
 async function registerNewPatient({
   name,
-  age,
+  dateOfBirth,
   profession,
   phone,
   gender,
@@ -20,7 +20,7 @@ async function registerNewPatient({
     const patient = new Patient({
       clinicPatientNumber,
       name,
-      age,
+      dateOfBirth,
       profession,
       phone,
       gender,
@@ -35,6 +35,7 @@ async function registerNewPatient({
     try {
       await client.query('ROLLBACK');
     } catch {}
+
     throw error;
   } finally {
     client.release();
